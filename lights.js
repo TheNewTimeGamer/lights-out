@@ -5,9 +5,12 @@ let lights = document.getElementsByClassName("light");
 
 let level = 0;
 let levels = [
-    [0,1,0,0,0,0,0,1],
-    [1,1,0,0,0,0,0,0],
-    [2,2,1,0,0,0,0,0]
+    [0,1,0,1,1,1,0,1],
+    [1,1,0,0,1,0,1,0],
+    [2,1,1,0,1,2,1,1],
+    [2,2,1,1,1,2,1,1],
+    [1,1,1,0,1,2,2,1],
+    [2,1,1,0,2,2,0,1]
 ];
 
 loadLevel(0);
@@ -28,7 +31,12 @@ function swap(i){
     if(!red){
         console.log("You win");
         level++;
-        alert("You win!");
+        if(level >= levels.length){
+            alert("All levels completed!");
+            level = 0;
+        }else{
+            alert("You win!");
+        }
         loadLevel();
     }
 
